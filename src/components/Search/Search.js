@@ -10,7 +10,6 @@ export default function Search() {
   useEffect(() => {
     setTerm(searchTerm ?? "");
   }, [searchTerm]);
-  console.log(searchTerm);
   const search = async () => {
     term ? navigate("/search/" + term) : navigate("/");
   };
@@ -18,10 +17,10 @@ export default function Search() {
     <div className={classes.container}>
       <input
         type="text"
-        placeholder="Search My Belly Baby!"
+        placeholder="Search Food Mine!"
         onChange={(e) => setTerm(e.target.value)}
         onKeyUp={(e) => e.key === "Enter" && search()}
-        value={searchTerm}
+        value={term}
       />
       <button onClick={search}>Search</button>
     </div>

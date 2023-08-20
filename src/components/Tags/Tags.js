@@ -1,12 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import classes from "./Tags.module.css";
+import classes from "./tags.module.css";
 
-export default function Tags(props) {
-  console.log("Tags mounted");
-  const tags = props.tags;
-  const forFoodPage = props.forFoodPage;
-  console.log(tags);
+export default function Tags({ tags, forFoodPage }) {
   return (
     <div
       className={classes.container}
@@ -15,9 +11,9 @@ export default function Tags(props) {
       }}
     >
       {tags.map((tag) => (
-        <Link key={tag.name} to={"/search/" + tag.name}>
+        <Link key={tag.name} to={`/tag/${tag.name}`}>
           {tag.name}
-          {!forFoodPage && ` (${tag.count})`}
+          {!forFoodPage && `(${tag.count})`}
         </Link>
       ))}
     </div>

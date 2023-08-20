@@ -1,15 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useCart } from "../../hooks/useCart";
 import classes from "./header.module.css";
 
 export default function Header() {
   const user = {
-    name: "Fat Bastard",
+    name: "John",
   };
-  const { cart } = useCart() || {};
 
-  /*const logout = () => {};*/
+  const cart = {
+    totalCount: 10,
+  };
+
+  const logout = () => {};
 
   return (
     <header className={classes.header}>
@@ -25,8 +27,7 @@ export default function Header() {
                 <div className={classes.menu}>
                   <Link to="/profile">Profile</Link>
                   <Link to="/orders">Orders</Link>
-                  <button>LogTFout</button>
-                  <button>{/*<a onClick={logout}>Logout</a>*/}</button>
+                  <a onClick={logout}>Logout</a>
                 </div>
               </li>
             ) : (
